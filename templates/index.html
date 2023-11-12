@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap library-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css') }}">
+
+    <title>Team Maker</title>
+</head>
+    <body style="padding-top: 70px;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+            <a class="navbar-brand" href="{{url_for('index_page')}}">Best Team Maker</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('index_page')}}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('login_page')}}">Test Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('blogs_page')}}">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('contacts_page')}}">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container mt-4">
+            <h1>Team Project</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error amet, sed ipsa ad rerum consequatur alias voluptate unde labore earum eaque doloremque soluta magnam repudiandae! Temporibus voluptas ullam doloribus rerum?</p>
+        </div>
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-sm-4">
+                    <h3>About this Project</h3>
+                    <img style="padding-top: 20px;" width="300px" src="{{url_for('static', filename = 'img/project_img.jpeg')}}">
+                    <p class="description" style="padding-top: 10px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum architecto numquam facere alias? Dolore harum quasi, quam tenetur at magnam similique ipsam explicabo alias, quas non ea quod sint assumenda?</p>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Meet our team</h3>
+                    <img style="padding-top: 20px;" width="300px" src="{{url_for('static', filename = 'img/team_members.jpeg')}}">
+                    <p class="description" style="padding-top: 10px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam recusandae ipsum officiis aliquid quisquam fugiat laboriosam quos. Dicta, est nam quasi explicabo doloribus, esse ea, nulla consequuntur molestiae beatae earum?</p>
+                </div>
+                <div class="col-sm-4">
+                    <h3>See all documentation and blogs</h3>
+                    <img style="padding-top: 20px;" width="300px" src="{{url_for('static', filename = 'img/blogs_image.jpeg')}}" alt="">
+                    <p class="description" style="padding-top: 10px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam debitis optio vero architecto, quisquam aliquam impedit praesentium harum veritatis excepturi aspernatur molestiae cumque voluptate officiis. Eaque iure libero amet aperiam!</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-sm-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad maiores iusto, mollitia quisquam numquam veniam quasi? Iure adipisci vel dolorem neque, similique ut nulla? Corrupti, doloremque. Minus nemo et quaerat?</div>
+                <div class="col-sm-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non asperiores repellat, laudantium repudiandae iure eius accusantium tempore, voluptatum facere, molestias modi ipsa! Voluptates, illum molestiae provident consequatur enim numquam explicabo!</div>
+                <div class="col-sm-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, similique! Optio beatae architecto perspiciatis recusandae non aspernatur adipisci blanditiis nostrum sit necessitatibus? Deserunt nemo ea eligendi suscipit reiciendis, adipisci neque.</div>
+            </div>
+        </div>
+        <!-- Footer with Sections -->
+        <footer class="custom-footer" style="background-color: #6c757d; color: aliceblue; padding: 20px 0; margin-top: 70px;">
+            <div class="container mt-4" style="text-align: center;">
+                <div class="row">
+                    <div class="col-md-4 footer-section">
+                        <h4>About Us</h4>
+                        <p>Your Company Name is dedicated to helping teams work efficiently and collaborate effectively.</p>
+                    </div>
+                    <div class="col-md-4 footer-section">
+                        <h4>Contact Us</h4>
+                        <p>Email: contact@yourcompany.com</p>
+                        <p>Phone: +123-456-7890</p>
+                    </div>
+                    <div class="col-md-4 footer-section">
+                        <h4>Address</h4>
+                        <p>123 Team Street</p>
+                        <p>City, Country</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>

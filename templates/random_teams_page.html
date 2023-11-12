@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css') }}">
+</head>
+    <body>
+        <!--Navar section-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+            <a class="navbar-brand" href="{{url_for('index_page')}}">Team Maker</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('index_page')}}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('get_logout')}}">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="content content-page">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Your Teams</h2>
+                    <h4>These are your teams based on their score, in case they have no score or they have similar scores, the teams are assign randomly.</h4>
+                </div>
+            </div>
+            <div class="container team-content">
+                <div class="row">
+                    {% for team in teams %}
+                    <div class="col-md-4 team-card">
+                        <h3>Team {{loop.index}}</h3>
+                        <div class="card team-card team-card_content">
+                            {% for member in team %}
+                            <h4>{{member["name"]}}</h4>
+                            
+                            <p class="description">
+                                Student id: {{member["student_id"]}}
+                            </p>
+                        
+                            <p class="description">
+                                Student score: {{member["score"]}}
+                            </p>
+                        
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% if loop.index % 3 == 0 %}
+                </div>
+                <div class="row">
+                {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer with Sections -->
+        <footer class="custom-footer" style="background-color: #6c757d; color: aliceblue; padding: 20px 0; margin-top: 70px;">
+            <div class="container mt-4" style="text-align: center;">
+                <div class="row">
+                    <div class="col-md-4 footer-section">
+                        <h4>About Us</h4>
+                        <p>Your Company Name is dedicated to helping teams work efficiently and collaborate effectively.</p>
+                    </div>
+                    <div class="col-md-4 footer-section">
+                        <h4>Contact Us</h4>
+                        <p>Email: contact@yourcompany.com</p>
+                        <p>Phone: +123-456-7890</p>
+                    </div>
+                    <div class="col-md-4 footer-section">
+                        <h4>Address</h4>
+                        <p>123 Team Street</p>
+                        <p>City, Country</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

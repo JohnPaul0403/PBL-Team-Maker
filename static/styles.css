@@ -1,0 +1,29 @@
+* {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    text-align: center;
+}
+
+.description {
+    text-align: justify;
+}
+
+.content-page {
+    padding-top: 70px;
+}
+
+.team-content {
+    padding-top: 3%;
+}
+
+.team-card {
+    padding: 30px;
+}
+
+.team-content p{
+    font-size: 20px;
+}
+
+.team-card_content {
+    background-color: rgb(250, 252, 254);
+}
