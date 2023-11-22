@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css') }}">
 
-    <title>Project Blog</title>
+    <title>{{blog.title}}</title>
 </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
@@ -32,29 +32,25 @@
                 </ul>
             </div>
         </nav>
-        <h1 style="padding-top: 70px;">Here will be the Blogs!</h1>
-
-        <div class="container blogs_cards mt-4">
-            <div class="row">
-                {% for blog in blogs %}
-                    <div class="col-md-4">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <h2 class="card-title">{{ blog.title }}</h2>
-                                <img style="padding-top: 10px; padding-bottom: 10px;" width="70%" src="{{url_for('static', filename = blog.img)}}" alt="">
-                                <p class="card-text">{{ blog.summary }}</p>
-                                <a href="{{ url_for('blog_page', blog_id=blog.id) }}" class="btn btn-primary">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                {% if loop.index % 3 == 0 %}
-                </div>
+        <div class="content" style="padding-top: 70px;">
+            <div class="container">
                 <div class="row">
-                {% endif %}
-                {% endfor %}
+                    <div class="col-md-12">
+                        <h2>{{blog.title}}</h2>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <img style="padding-top: 20px;" width="400px" src="{{url_for('static', filename = blog.img)}}" alt="">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <p style="text-align: justify; font-size: 150%;">{{blog.body}}</p>
+                    </div>
+                </div>
             </div>
         </div>
-
         <!-- Footer with Sections -->
         <footer class="custom-footer" style="background-color: #6c757d; color: aliceblue; padding: 20px 0; margin-top: 70px;">
             <div class="container mt-4" style="text-align: center;">
@@ -76,8 +72,5 @@
                 </div>
             </div>
         </footer>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </body>
 </html>

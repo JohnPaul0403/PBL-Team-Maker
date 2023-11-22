@@ -20,17 +20,14 @@ def create_random_teams(data, n):
 
     #Variable declaration
     step = int(len(data) / n)
-    team_list = [i for i in range(1, step + 1)]
+    team_list = list(range(1, step + 1))
     teams = []
 
     #shuffle data inside the list
     rd.shuffle(data)
 
     #Arrange data by teams
-    for i in team_list: 
-        index = i - 1
-        teams.append(data[index : : step])
-
+    teams.extend(data[i - 1::step] for i in team_list)
     return teams
 
 def create_teams_pos(data, n):

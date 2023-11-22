@@ -5,6 +5,7 @@
 from Data_proccess import random_groups as rg
 
 def sort_teams(data):
+    
     while True:
         n = 0
         for  i in range(1, len(data)):

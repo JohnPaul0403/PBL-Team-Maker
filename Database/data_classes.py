@@ -43,7 +43,7 @@ class Professor(Person):
         return self._students
     
     @students.setter
-    def students(self, students):
+    def students(self, students: str):
 
         #Variable declaration
         students_class = []
@@ -58,7 +58,7 @@ class Professor(Person):
         prof_students = pd.update_professors_students(self.id)
         self.students = prof_students
 
-    def sort_students(self):
+    def sort_students(self) -> None:
         while True:
             n = 0
             for i in range(1, len(self.students)):

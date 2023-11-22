@@ -56,33 +56,40 @@ def update_professors_students(prof_id):
     all_students = sdm.read_students()
 
     for student in all_students:
-        for professor in student["profs"]:
-
-            if str(professor) == prof_id:
-                students.append(student)
-
+        students.extend(
+            student
+            for professor in student["profs"]
+            if str(professor) == prof_id
+        )
     with open(csv_file_name, mode="r") as file:
         reader = csv.reader(file)
         for row in reader:
             if row[1] == prof_id:
                 row[2] = students
             data.append(row)
-    
+
     with open(csv_file_name, mode="w", newline="") as file:
         writer = csv.writer(file)
         writer.writerows(data)
 
     return students
 
+#Get proffesor name by its id
+def get_name_by_id(proffesor_id):
+
+    with open(csv_file_name, mode="r") as file:
+        reader = csv.reader(file)
+        for row in reader:
+            name, prof_id, students = row
+            if prof_id == proffesor_id:
+                return name
+
 # Function to delete a student record by student ID.
 def delete_professor(proffesor_id):
     data = []
     with open(csv_file_name, mode="r") as file:
         reader = csv.reader(file)
-        for row in reader:
-            if row[1] != proffesor_id:
-                data.append(row)
-    
+        data.extend(row for row in reader if row[1] != proffesor_id)
     with open(csv_file_name, mode="w", newline="") as file:
         writer = csv.writer(file)
         writer.writerows(data)

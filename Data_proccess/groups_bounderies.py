@@ -12,7 +12,7 @@ def get_team_bounderies(scores, n):
     max_num = max(scores)
     temp = min_num
 
-    step = [int((max_num - min_num) / n) for i in range(n)]
+    step = [int((max_num - min_num) / n) for _ in range(n)]
 
     for i in step:
         bounderies.append((temp, temp + i))
@@ -36,11 +36,10 @@ def get_teams_limit(members_num, n):
         limits.append(n)
 
     #Last team organization
-    if limits[-1] == 0 :
+    if limits[-1] == 0:
         limits[-1] = n
-    else:
-        if limits[-1] == 1:
-            limits[-1] += 1
-            limits[-2] -= 1
+    elif limits[-1] == 1:
+        limits[-1] += 1
+        limits[-2] -= 1
 
     return limits
