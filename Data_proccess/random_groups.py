@@ -17,6 +17,20 @@ def scores_same(data):
 
 #In case there is no score bounderies or minimum changes, it will just create random groups
 def create_random_teams(data, n):
+    """
+    Creates random teams from given data.
+
+    Args:
+        data: The data used to create teams.
+        n: The number of members per group to create.
+
+    Returns:
+        List: The randomly created teams.
+
+    Examples:
+        # Create random teams of 4 from data
+        teams = create_random_teams(data, 4)
+    """
 
     #Variable declaration
     step = int(len(data) / n)
@@ -31,11 +45,39 @@ def create_random_teams(data, n):
     return teams
 
 def create_teams_pos(data, n):
-    teams = create_random_teams(data, n)
-    averages = [int(sum(i["score"] for i in members) / len(members)) for members in teams]
+    """
+    Creates teams from given data and optimizes the team composition based on the average scores of the members.
 
-    if max(averages) - 10 <= min(averages):
-        return teams, averages
-    else:
-        return create_teams_pos(data, n)
+    Args:
+        data: The data used to create teams.
+        n: The number of teams to create.
+
+    Returns:
+        Tuple: The optimized teams and their average scores.
+
+    Examples:
+        # Create teams of 4 from data
+        teams, averages = create_teams_pos(data, 4)
+    """
+    iters = 100000
+    teams = []
+    averages = []
+    optimize = 100
+
+    for _ in range(iters):
+        new_teams = create_random_teams(data, n)
+        new_averages = [int(sum(i["score"] for i in members) / len(members)) for members in new_teams]
+        new_optimze = max(new_averages) - min(new_averages)
+
+        if new_optimze == 0:
+            teams = new_teams
+            averages = new_averages
+            break 
+
+        if new_optimze < optimize:
+            optimize = new_optimze
+            teams = new_teams
+            averages = new_averages
+
+    return teams, averages
 
