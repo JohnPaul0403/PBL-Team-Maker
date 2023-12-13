@@ -69,62 +69,71 @@
         <!-- Tab panes -->
         <div class="tab-content dashboard-content">
             <div class="tab-pane container active" id="home">
-                <div class="row">
+                <div class="row mt-4">
                     <!-- Notes Card -->
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Your students Notes</h5>
-                                <p class="card-text">View and manage your notes.</p>
-                                <img style="padding-top: 20px; display: block; margin: 0 auto;" width="300px" src="{{url_for('static', filename = 'img/pie_chart.jpeg')}}">
-                                <p style="padding-top: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dignissimos earum repellendus, porro, blanditiis commodi vero autem odio amet distinctio illo recusandae et unde laborum rerum hic nam. Voluptatum, libero.</p>
+                                <h5 class="card-title">Your Students' Notes</h5>
+                                <p class="card-text">View and manage your students' notes.</p>
+                                <div class="text-center">
+                                    <img class="img-fluid" src="{{url_for('static', filename='img/pie_chart.jpeg')}}" alt="Notes Chart">
+                                </div>
+                                <p class="mt-3">Gain insights into your students' progress through interactive charts and analytics.</p>
                                 <a href="#" class="btn btn-primary">View Notes</a>
                             </div>
                         </div>
                     </div>
-        
+            
                     <!-- Team Maker Card -->
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Create Teams</h5>
-                                <p class="card-text">Create new teams based on historical data.</p>
-                                <img style="padding-top: 20px; display: block; margin: 0 auto;" width="300px" src="{{url_for('static', filename = 'img/ai_bulp.jpeg')}}">
-                                <p style="padding-top: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti maxime cupiditate doloribus hic deleniti nam, sit facere libero dolor. Commodi dicta adipisci reprehenderit? Soluta eos laboriosam consequatur accusamus, est autem.</p>
+                                <h5 class="card-title">Create Teams with AI</h5>
+                                <p class="card-text">Utilize historical data to create optimal teams.</p>
+                                <div class="text-center">
+                                    <img class="img-fluid" src="{{url_for('static', filename = 'img/ai_bulp.jpeg')}}" alt="AI Bulb">
+                                </div>
+                                <p class="mt-3">Leverage artificial intelligence to predict and form effective teams based on historical performance.</p>
                                 <a href="#" class="btn btn-primary">View Predictions</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <div class="tab-pane container fade" id="menu1">
                 <!-- Students' list -->
                 <div class="row mt-4">
-                    <div class="col-md-12">
-                        <h4>
-                            Course Stadistics:
-                        </h4>
-                        <ul>
-                            <li>Average: {{average}}</li>
-                            <li>Max score: {{max_score}}</li>
-                            <li>Min score: {{min_score}}</li>
-                        </ul>
-                        <h4>Your students' list</h4>
-                        <ul>
-                            {% for student in students%}
-                            <li>
-                                <h5>
-                                    {{student.name}}: 
-                                </h5>
-                                <h6>
-                                    Score - {{student.score}}
-                                </h6>
-                            </li>
-                            {% endfor %}
-                        </ul>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Course Statistics</h4>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Average: {{ average }}</li>
+                                    <li class="list-group-item">Max score: {{ max_score }}</li>
+                                    <li class="list-group-item">Min score: {{ min_score }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Your Students' List</h4>
+                                <ul class="list-group list-group-flush">
+                                    {% for student in students %}
+                                    <li class="list-group-item">
+                                        <h5>{{ student.name }}</h5>
+                                        <p class="mb-0">Score: {{ student.score }}</p>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </div>                        
             <div class="tab-pane container fade" id="menu2">
                 <div class="row">
                     <div class="col-md-12">
@@ -133,15 +142,30 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-md-4">
-                        <p>This Platform is use to create teams based on their score, the only input needed is the amount of team member you will need</p>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Effortless Team Creation</h5>
+                                <p class="card-text">This platform simplifies team creation based on individual scores. Just input the desired team size, and Team Maker will handle the rest.</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <p>For example if you need gropus of 4, you will only need to put in the input behind the number 4, and that's all. To avoid problems, please avoid using any special characther on it</p>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Easy Configuration</h5>
+                                <p class="card-text">For instance, if you need groups of 4, input '4' and you're set. Avoid using special characters for a seamless experience.</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <p>As extra recomendations we sugest to Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum tempora officia nemo ipsum asperiores architecto obcaecati est placeat deleniti iure, quod ratione aliquam commodi, cum voluptas expedita exercitationem. Voluptatem, perferendis?</p>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Recommendations for Success</h5>
+                                <p class="card-text">To ensure optimal results, follow best practices. For instance, avoid doing teams of more than the half of the class, the system will automatically create two groups.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </div>                
                 <div class="row justify-content-center mt-4">
                     <div class="col-md-4">
                         <div class="card">
@@ -159,7 +183,7 @@
                                         <label for="team_input">Number of team members per group</label>
                                         <input type="text" class="form-control" name="team_input" placeholder="Number of team members">
                                     </div>
-                                    <button type="submit" class="btn btn-secondary btn-block">Create teams</button>
+                                    <button type="submit" class="btn btn-info btn-block">Create teams</button>
                                 </form>
                             </div>
                         </div>
@@ -173,18 +197,18 @@
             <div class="container mt-4" style="text-align: center;">
                 <div class="row">
                     <div class="col-md-4 footer-section">
-                        <h4>About Us</h4>
-                        <p>Your Company Name is dedicated to helping teams work efficiently and collaborate effectively.</p>
+                        <h4>About Team Maker</h4>
+                        <p>Team Maker is a transformative project committed to revolutionizing the way teams are formed in educational settings. Our mission is to simplify the team formation process for educators, providing an intuitive dashboard and innovative features that enhance collaboration and enrich the learning experience.</p>
                     </div>
                     <div class="col-md-4 footer-section">
-                        <h4>Contact Us</h4>
-                        <p>Email: contact@yourcompany.com</p>
+                        <h4>Contact Team Maker</h4>
+                        <p>Email: contact@teammaker.com</p>
                         <p>Phone: +123-456-7890</p>
                     </div>
                     <div class="col-md-4 footer-section">
-                        <h4>Address</h4>
-                        <p>123 Team Street</p>
-                        <p>City, Country</p>
+                        <h4>Visit Us</h4>
+                        <p>Team Maker HQ</p>
+                        <p>123 Innovation Avenue</p>
                     </div>
                 </div>
             </div>
@@ -193,5 +217,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
     </body>
 </html>

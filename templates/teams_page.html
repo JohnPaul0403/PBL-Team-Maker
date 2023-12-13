@@ -7,85 +7,85 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css') }}">
 </head>
-    <body>
-        <!--Navar section-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
-            <a class="navbar-brand" href="{{url_for('index_page')}}">Team Maker</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('index_page')}}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('get_logout')}}">Log out</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="content content-page">
+<body>
+    <!--Navar section-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+        <a class="navbar-brand" href="{{url_for('index_page')}}">Team Maker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('index_page')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('get_logout')}}">Log out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Content section -->
+    <div class="content content-page">
+        <div class="container mt-5">
             <div class="row">
                 <div class="col-md-12">
                     <h2>Your Teams</h2>
-                    <h4>These are your teams based on their score, in case they have no score or they have similar scores, the teams are assign randomly.</h4>
+                    <p class="lead">These are your teams based on their scores. In case they have no scores or they have similar scores, the teams are assigned randomly.</p>
                 </div>
             </div>
-            <div class="container team-content">
-                <div class="row">
-                    {% for team in teams %}
-                    <div class="col-md-4 team-card">
-                        <h3>Team {{loop.index}}</h3>
-                        <ul>
-                            <li>
-                                <p style="text-align: justify;">Average: {{averages[loop.index - 1]}}</p>
-                            </li>
-                            <li>
-                                <p style="text-align: justify;">Predicted score: {{predicted_note[loop.index - 1]}}</p>
-                            </li>
-                        </ul>
-                        <div class="card team-card team-card_content">
-                            {% for member in team %}
-                            <h4>{{member["name"]}}</h4>
-                            
-                            <p class="description">
-                                Student id: {{member["student_id"]}}
-                            </p>
-                        
-                            <p class="description">
-                                Student score: {{member["score"]}}
-                            </p>
-                        
-                            {% endfor %}
+
+            <div class="row">
+                {% for team in teams %}
+                <div class="col-md-4 mb-4">
+                    <div class="card team-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Team {{loop.index}}</h3>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <p class="card-text">Average: {{averages[loop.index - 1]}}</p>
+                                </li>
+                                <li>
+                                    <p class="card-text">Predicted score: {{predicted_note[loop.index - 1]}}</p>
+                                </li>
+                            </ul>
+
+                            <div class="card team-card-content bg-light">
+                                {% for member in team %}
+                                    <h4>{{member["name"]}}</h4>
+                                    <p class="card-text">Student ID: {{member["student_id"]}}</p>
+                                    <p class="card-text">Student Score: {{member["score"]}}</p>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
-                {% if loop.index % 3 == 0 %}
                 </div>
-                <div class="row">
+                {% if loop.index % 3 == 0 %}
+            </div>
+            <div class="row">
                 {% endif %}
                 {% endfor %}
-                </div>
             </div>
         </div>
+    </div>
 
         <!-- Footer with Sections -->
         <footer class="custom-footer" style="background-color: #6c757d; color: aliceblue; padding: 20px 0; margin-top: 70px;">
             <div class="container mt-4" style="text-align: center;">
                 <div class="row">
                     <div class="col-md-4 footer-section">
-                        <h4>About Us</h4>
-                        <p>Your Company Name is dedicated to helping teams work efficiently and collaborate effectively.</p>
+                        <h4>About Team Maker</h4>
+                        <p>Team Maker is a transformative project committed to revolutionizing the way teams are formed in educational settings. Our mission is to simplify the team formation process for educators, providing an intuitive dashboard and innovative features that enhance collaboration and enrich the learning experience.</p>
                     </div>
                     <div class="col-md-4 footer-section">
-                        <h4>Contact Us</h4>
-                        <p>Email: contact@yourcompany.com</p>
+                        <h4>Contact Team Maker</h4>
+                        <p>Email: contact@teammaker.com</p>
                         <p>Phone: +123-456-7890</p>
                     </div>
                     <div class="col-md-4 footer-section">
-                        <h4>Address</h4>
-                        <p>123 Team Street</p>
-                        <p>City, Country</p>
+                        <h4>Visit Us</h4>
+                        <p>Team Maker HQ</p>
+                        <p>123 Innovation Avenue</p>
                     </div>
                 </div>
             </div>
@@ -94,5 +94,5 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    </body>
+</body>
 </html>

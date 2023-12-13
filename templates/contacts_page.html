@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Bootstrap library-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css') }}">
 
     <title>Contact Us</title>
 </head>
@@ -27,6 +26,9 @@
                         <a class="nav-link" href="{{url_for('blogs_page')}}">Blog</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('chat_page')}}">Chat Assistant</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{url_for('contacts_page')}}">Contacts</a>
                     </li>
                 </ul>
@@ -36,28 +38,48 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>Contact Us Page!</h1>
+                        <h1 class="display-4 mb-4" style="text-align: center;">Welcome to Team Maker!</h1>
+                        <p class="lead" style="text-align: justify;">At Team Maker, we believe in the power of collaboration and the impact it can have on the learning experience. Our platform is designed to transform the way teams are formed in educational environments, making it easier and more efficient for educators and students alike.</p>
+        
+                        <h2>Our Story</h2>
+                        <p style="text-align: justify;">Team Maker was born out of a vision to address the challenges educators face when forming teams. As students ourselves, we experienced firsthand the complexities of team dynamics and recognized the need for a solution that simplifies the process while ensuring fair and balanced team compositions.</p>
+        
+                        <h2>Our Mission</h2>
+                        <p style="text-align: justify;">Our mission is to empower educators with a tool that goes beyond traditional team formation methods. By leveraging advanced algorithms and data-driven insights, Team Maker aims to create teams that not only meet project requirements but also foster a collaborative and inclusive learning environment.</p>
+        
+                        <h2>Why Team Maker?</h2>
+                        <p style="text-align: justify;">Team Maker stands out by providing a user-friendly interface, predictive analytics, and a commitment to enhancing collaboration. Our platform takes into account individual scores, ensuring that each team is well-balanced and capable of achieving success.</p>
+        
+                        <h2>Contact Us</h2>
+                        <p style="text-align: justify;">We value your feedback and are always here to assist you. Reach out to us through the following channels:</p>
+                        <ul>
+                            <li>Email: <a href="mailto:contact@teammaker.com">contact@teammaker.com</a></li>
+                            <li>Phone: +123-456-7890</li>
+                        </ul>
+        
+                        <p class="mt-4" style="text-align: justify;">Join us in revolutionizing team formation and collaboration in education. Team Maker is not just a platform; it's a commitment to making teamwork seamless and enjoyable.</p>
                     </div>
                 </div>
             </div>
         </div>
+        
         <!-- Footer with Sections -->
         <footer class="custom-footer" style="background-color: #6c757d; color: aliceblue; padding: 20px 0; margin-top: 70px;">
             <div class="container mt-4" style="text-align: center;">
                 <div class="row">
                     <div class="col-md-4 footer-section">
-                        <h4>About Us</h4>
-                        <p>Your Company Name is dedicated to helping teams work efficiently and collaborate effectively.</p>
+                        <h4>About Team Maker</h4>
+                        <p>Team Maker is a transformative project committed to revolutionizing the way teams are formed in educational settings. Our mission is to simplify the team formation process for educators, providing an intuitive dashboard and innovative features that enhance collaboration and enrich the learning experience.</p>
                     </div>
                     <div class="col-md-4 footer-section">
-                        <h4>Contact Us</h4>
-                        <p>Email: contact@yourcompany.com</p>
+                        <h4>Contact Team Maker</h4>
+                        <p>Email: contact@teammaker.com</p>
                         <p>Phone: +123-456-7890</p>
                     </div>
                     <div class="col-md-4 footer-section">
-                        <h4>Address</h4>
-                        <p>123 Team Street</p>
-                        <p>City, Country</p>
+                        <h4>Visit Us</h4>
+                        <p>Team Maker HQ</p>
+                        <p>123 Innovation Avenue</p>
                     </div>
                 </div>
             </div>

@@ -94,7 +94,7 @@ def delete_professor(proffesor_id):
         writer = csv.writer(file)
         writer.writerows(data)
 
-# Example usage:
+#Function to create a new proffessor
 def create_prof():
     while True:
         print("\nCRUD Options:")

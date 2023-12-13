@@ -6,16 +6,17 @@
 #Libraries Import 
 from Database import professors_database as pd
 from Database import data_classes as dtc
-from Data_proccess import groups_bounderies as gb
-from Data_proccess import data_sorting as ds
 from Data_proccess import random_groups as rg
 from Data_proccess import predict_note as pn
+from chat_bot import chat_bot as cb
 from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask_sock import Sock
 import json
 
 #Main function, no variable declaration
 def main():
     app = Flask(__name__)
+    sock = Sock(app)
     app.secret_key = "sddddd"
 
     #Index page
@@ -90,6 +91,18 @@ def main():
     @app.route('/contacts/')
     def contacts_page():
         return render_template('contacts_page.html')
+    
+    @app.route("/chat/")
+    def chat_page():
+        return render_template("chat.html")
+    
+    @sock.route("/echo")
+    def echo(sock):
+        client = cb.set_client()
+        while True:
+            data = sock.receive()
+            response = cb.send_message(client, data)
+            sock.send(response)
 
     #--------------------Dashboard Page and functions--------------------#
     @app.route('/prof/<prof>')
@@ -117,7 +130,7 @@ def main():
 
         try:
             scores = [int(i.score) for i in prof_class.students]
-            average = gb.average_nums(scores)
+            average = rg.average_nums(scores)
         except Exception:
             scores = [0, 0]
             average = "No data yet"
@@ -135,19 +148,19 @@ def main():
     def teams_page():
 
         #varible declaration
-        if request.method == 'POST':
-            try:
-                team_input = int(request.form['team_input'])
-            except Exception:
-                team_input = 0
-
-            if not team_input:
-                flash("Incorect value. Please try again!")
-                prof_name = pd.get_name_by_id(session['username'])
-                return redirect(url_for("dashboard_page", prof = prof_name))
-        else:
+        if request.method != 'POST':
             session.pop('_flashes', None)
             return redirect(url_for("login_page"))
+        
+        try:
+            team_input = int(request.form['team_input'])
+        except Exception:
+            team_input = 0
+
+        if not team_input:
+            flash("Incorect value. Please try again!")
+            prof_name = pd.get_name_by_id(session['username'])
+            return redirect(url_for("dashboard_page", prof = prof_name))
 
         #Removing flash messages
         session.pop('_flashes', None)
@@ -176,13 +189,13 @@ def main():
             teams = rg.create_random_teams(my_students, team_input)
             return render_template("random_teams_page.html", teams = teams)
         
-        teams, averages = ds.get_teams(my_students, team_input)
+        teams, averages = rg.create_teams_pos(my_students, team_input)
         predicted_note = [pn.get_score(i) for i in averages]
 
         return render_template("teams_page.html", teams = teams, averages = averages, predicted_note = predicted_note)
 
 
-    app.run(host="0.0.0.0", port=8000, debug=True)
+    app.run(debug=True)
 
 #Main function call
 if __name__ == "__main__" :

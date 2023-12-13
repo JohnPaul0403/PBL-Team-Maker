@@ -60,8 +60,8 @@ def delete_student(student_id):
     with open(csv_file, mode="w", newline="") as file:
         writer = csv.writer(file)
         writer.writerows(data)
-
-# Example usage:
+        
+# Function to add a new student record.
 def create_data_student() :
     while True:
         print("\nCRUD Options:")

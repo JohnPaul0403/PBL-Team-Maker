@@ -5,7 +5,7 @@ from Database import professors_database as pd
 from Database import student_database_manager as sdm
 
 #Class person this is a generalze class
-class Person:
+class Person(object):
     def __init__(self, name, school_id) -> None:
         self._name = name
         self._id = school_id
@@ -39,11 +39,11 @@ class Professor(Person):
         return super().__delattr__(__name)
 
     @property
-    def students(self) -> str:
+    def students(self):
         return self._students
     
     @students.setter
-    def students(self, students: str):
+    def students(self, students):
 
         #Variable declaration
         students_class = []
@@ -59,6 +59,7 @@ class Professor(Person):
         self.students = prof_students
 
     def sort_students(self) -> None:
+        self.students.sort(key=lambda x : x.score)
         while True:
             n = 0
             for i in range(1, len(self.students)):
@@ -69,6 +70,8 @@ class Professor(Person):
                     n += 1
             
             if n == 0 : break
+
+        self.students.reverse()
 
     def __str__(self) -> str:
         return super().__str__()

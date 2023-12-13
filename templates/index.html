@@ -27,58 +27,97 @@
                         <a class="nav-link" href="{{url_for('blogs_page')}}">Blog</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('chat_page')}}">Chat Assistant</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{url_for('contacts_page')}}">Contacts</a>
                     </li>
                 </ul>
             </div>
         </nav>
-        <div class="container mt-4">
-            <h1>Team Project</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error amet, sed ipsa ad rerum consequatur alias voluptate unde labore earum eaque doloremque soluta magnam repudiandae! Temporibus voluptas ullam doloribus rerum?</p>
-        </div>
-        <div class="container">
-            <div class="row mt-4">
-                <div class="col-sm-4">
-                    <h3>About this Project</h3>
-                    <img style="padding-top: 20px;" width="300px" src="{{url_for('static', filename = 'img/project_img.jpeg')}}">
-                    <p class="description" style="padding-top: 10px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum architecto numquam facere alias? Dolore harum quasi, quam tenetur at magnam similique ipsam explicabo alias, quas non ea quod sint assumenda?</p>
-                </div>
-                <div class="col-sm-4">
-                    <h3>Meet our team</h3>
-                    <img style="padding-top: 20px;" width="300px" src="{{url_for('static', filename = 'img/team_members.jpeg')}}">
-                    <p class="description" style="padding-top: 10px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam recusandae ipsum officiis aliquid quisquam fugiat laboriosam quos. Dicta, est nam quasi explicabo doloribus, esse ea, nulla consequuntur molestiae beatae earum?</p>
-                </div>
-                <div class="col-sm-4">
-                    <h3>See all documentation and blogs</h3>
-                    <img style="padding-top: 20px;" width="300px" src="{{url_for('static', filename = 'img/blogs_image.jpeg')}}" alt="">
-                    <p class="description" style="padding-top: 10px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam debitis optio vero architecto, quisquam aliquam impedit praesentium harum veritatis excepturi aspernatur molestiae cumque voluptate officiis. Eaque iure libero amet aperiam!</p>
+        <header>
+            <div class="container mt-4">
+                <h1>Team Project Hub: Where Collaboration Ignites Innovation</h1>
+                <p>Welcome to the Team Project hub, a space where creativity and collaboration converge. Our project is not just lines of code; it's a journey of exploration and innovation.</p>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <div class="row mt-4">
+                    <div class="col-sm-4">
+                        <h3>About this Project</h3>
+                        <img style="padding-top: 20px;" width="300px" src="{{url_for('static', filename = 'img/project_img.jpeg')}}">
+                        <p class="description" style="padding-top: 10px;">In this realm of possibilities, we forge a path toward groundbreaking team collaboration. Dive into the heart of our project, where every line of code tells a story of problem-solving and ingenuity. Join us in shaping the future of teamwork.</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Meet our team</h3>
+                        <img style="padding-top: 20px;" width="300px" src="{{url_for('static', filename = 'img/team_members.jpeg')}}">
+                        <p class="description" style="padding-top: 10px;">Behind every successful project is a dynamic team. Get to know the faces and minds driving the Team Maker Project forward. From developers to creatives, each member brings a unique piece to the collaborative puzzle. Meet the architects of tomorrow's team dynamics.</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>See all documentation and blogs</h3>
+                        <img style="padding-top: 20px;" width="300px" src="{{url_for('static', filename = 'img/blogs_image.jpeg')}}" alt="">
+                        <p class="description" style="padding-top: 10px;">Our journey extends beyond code and algorithms. Delve into comprehensive documentation and insightful blogs that unravel the technical intricacies of Team Maker. Learn about our challenges, triumphs, and the transformative power of Flask, AI integration, and optimization algorithms.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="row mt-4">
-                <div class="col-sm-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad maiores iusto, mollitia quisquam numquam veniam quasi? Iure adipisci vel dolorem neque, similique ut nulla? Corrupti, doloremque. Minus nemo et quaerat?</div>
-                <div class="col-sm-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non asperiores repellat, laudantium repudiandae iure eius accusantium tempore, voluptatum facere, molestias modi ipsa! Voluptates, illum molestiae provident consequatur enim numquam explicabo!</div>
-                <div class="col-sm-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, similique! Optio beatae architecto perspiciatis recusandae non aspernatur adipisci blanditiis nostrum sit necessitatibus? Deserunt nemo ea eligendi suscipit reiciendis, adipisci neque.</div>
+            <div class="container">
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <h2>The Vision Unveiled</h2>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-sm-4">
+                        <p class="description">At Team Maker, our mission is to revolutionize the team formation landscape, empowering educators with a dynamic tool that transcends traditional methods. Inspired by the challenges observed in real-world classrooms, our project seeks to streamline and enhance the team-making process for professors. By combining innovative technology with user-centric design, Team Maker aspires to alleviate the burdens of educators, fostering a collaborative learning environment where diverse skills harmonize effortlessly. We envision a future where every professor can effortlessly orchestrate balanced and effective teams, ultimately enriching the educational experience for students and transforming the way we approach collaborative endeavors.</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="description" >As Team Maker continues to evolve, our commitment to simplifying educators' lives remains unwavering. Anticipating a future where the professor's dashboard becomes a hub of efficiency and insights, we're excited to unveil a roadmap brimming with innovative features and integrations. Beyond just team formation, Team Maker aims to transform the traditional spreadsheet into a dynamic dashboard that showcases course statistics intuitively. We envision features such as real-time performance analytics, attendance tracking, and collaborative project management seamlessly integrated into the professor's toolkit. With a user-centric design at its core, the future of Team Maker promises not just ease of use, but an immersive experience that enhances the entire educational journey. Join us on this exciting trajectory as we redefine the professor's dashboard, making education not just informative but truly empowering.</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="description" >The Team Maker Project's journey has been defined by significant milestones, each reflecting our dedication to simplifying team formation for educators. From mastering Flask, integrating AI models, to refining our optimization algorithm, each achievement signifies a step toward technical proficiency and versatility. Our user-centric design philosophy enhances functionality, and the evolution of our algorithm showcases a commitment to constant refinement. Integrating Flask for web development and deploying AI models mark milestones of expanded capabilities. As we anticipate exciting features and integrations in the future, we celebrate the collective effort, challenges overcome, and the transformative impact that Team Maker continues to bring to education. With gratitude for the journey so far, we look forward to redefining the educational landscape one milestone at a time.</p>
+                    </div>
+                </div>
             </div>
-        </div>
+            <div class="container" style="padding-top: 20px; font-size: larger;">
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <p>Join us on this exciting journey as we redefine collaboration, one line of code at a time.</p>
+                    </div>
+                    <div class="col-md-12">
+                        <p>Stay tuned for the latest updates and insights!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-5">
+                <h2 class="text-center">Subscribe to Our Newsletter</h2>
+                <form action="#" method="post" class="mx-auto mt-4" style="max-width: 400px;">
+                    <div class="input-group mb-3">
+                        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-info">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
         <!-- Footer with Sections -->
         <footer class="custom-footer" style="background-color: #6c757d; color: aliceblue; padding: 20px 0; margin-top: 70px;">
             <div class="container mt-4" style="text-align: center;">
                 <div class="row">
                     <div class="col-md-4 footer-section">
-                        <h4>About Us</h4>
-                        <p>Your Company Name is dedicated to helping teams work efficiently and collaborate effectively.</p>
+                        <h4>About Team Maker</h4>
+                        <p>Team Maker is a transformative project committed to revolutionizing the way teams are formed in educational settings. Our mission is to simplify the team formation process for educators, providing an intuitive dashboard and innovative features that enhance collaboration and enrich the learning experience.</p>
                     </div>
                     <div class="col-md-4 footer-section">
-                        <h4>Contact Us</h4>
-                        <p>Email: contact@yourcompany.com</p>
+                        <h4>Contact Team Maker</h4>
+                        <p>Email: contact@teammaker.com</p>
                         <p>Phone: +123-456-7890</p>
                     </div>
                     <div class="col-md-4 footer-section">
-                        <h4>Address</h4>
-                        <p>123 Team Street</p>
-                        <p>City, Country</p>
+                        <h4>Visit Us</h4>
+                        <p>Team Maker HQ</p>
+                        <p>123 Innovation Avenue</p>
                     </div>
                 </div>
             </div>

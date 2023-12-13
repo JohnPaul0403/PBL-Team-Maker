@@ -26,58 +26,58 @@
             </div>
         </nav>
         <div class="content content-page">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Your Teams</h2>
-                    <h4>These are your teams based on their score, in case they have no score or they have similar scores, the teams are assign randomly.</h4>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="mb-4 text-center">Your Randomly Assigned Teams</h2>
+                        <h4 class="text-center mb-4">Teams are formed based on scores, with consideration for similarity. If scores are similar or undefined, teams are assigned randomly.</h4>
+                    </div>
                 </div>
-            </div>
-            <div class="container team-content">
+        
                 <div class="row">
                     {% for team in teams %}
-                    <div class="col-md-4 team-card">
-                        <h3>Team {{loop.index}}</h3>
-                        <div class="card team-card team-card_content">
-                            {% for member in team %}
-                            <h4>{{member["name"]}}</h4>
-                            
-                            <p class="description">
-                                Student id: {{member["student_id"]}}
-                            </p>
-                        
-                            <p class="description">
-                                Student score: {{member["score"]}}
-                            </p>
-                        
-                            {% endfor %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title text-center">Team {{ loop.index }}</h3>
+                                <ul class="list-group list-group-flush">
+                                    {% for member in team %}
+                                    <li class="list-group-item">
+                                        <h5>{{ member["name"] }}</h5>
+                                        <p class="mb-0">Student ID: {{ member["student_id"] }}</p>
+                                        <p class="mb-0">Score: {{ member["score"] }}</p>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                {% if loop.index % 3 == 0 %}
-                </div>
-                <div class="row">
-                {% endif %}
-                {% endfor %}
+        
+                    {% if loop.index % 3 == 0 %}
+                    </div>
+                    <div class="row">
+                    {% endif %}
+                    {% endfor %}
                 </div>
             </div>
-        </div>
-
+        </div>        
         <!-- Footer with Sections -->
         <footer class="custom-footer" style="background-color: #6c757d; color: aliceblue; padding: 20px 0; margin-top: 70px;">
             <div class="container mt-4" style="text-align: center;">
                 <div class="row">
                     <div class="col-md-4 footer-section">
-                        <h4>About Us</h4>
-                        <p>Your Company Name is dedicated to helping teams work efficiently and collaborate effectively.</p>
+                        <h4>About Team Maker</h4>
+                        <p>Team Maker is a transformative project committed to revolutionizing the way teams are formed in educational settings. Our mission is to simplify the team formation process for educators, providing an intuitive dashboard and innovative features that enhance collaboration and enrich the learning experience.</p>
                     </div>
                     <div class="col-md-4 footer-section">
-                        <h4>Contact Us</h4>
-                        <p>Email: contact@yourcompany.com</p>
+                        <h4>Contact Team Maker</h4>
+                        <p>Email: contact@teammaker.com</p>
                         <p>Phone: +123-456-7890</p>
                     </div>
                     <div class="col-md-4 footer-section">
-                        <h4>Address</h4>
-                        <p>123 Team Street</p>
-                        <p>City, Country</p>
+                        <h4>Visit Us</h4>
+                        <p>Team Maker HQ</p>
+                        <p>123 Innovation Avenue</p>
                     </div>
                 </div>
             </div>

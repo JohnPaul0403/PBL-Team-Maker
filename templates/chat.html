@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat With the Project</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'chat_styles.css') }}">
+</head>
+<body>
+    <!-- HTML -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+        <a class="navbar-brand" href="{{url_for('index_page')}}">Best Team Maker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('index_page')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('login_page')}}">Test Project</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('blogs_page')}}">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('chat_page')}}">Chat Assistant</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('contacts_page')}}">Contacts</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 70px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="text-align: center;">
+                    Chat With the Project
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3 style="text-align: justify;">
+                    You can ask to the assistant about any inquiries from the team maker project. It is important to ask for the Team Maker instead of project to be sure of getting the best responeses.
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card chat-app">
+                    <div class="chat">
+                        <div class="chat-history">
+                            <ul class="m-b-0" id="log-container"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar fixed-bottom bg-inverse">
+        <div class="container">
+            <form id="form" class="p-3 border rounded" style="width: 100%;">
+                <div class="form-group">
+                    <label for="text" class="sr-only">Input:</label>
+                    <input type="text" id="text" class="form-control" autofocus placeholder="Enter text...">
+                </div>
+            </form>
+        </div>
+    </nav>
+    <br>
+    <script>
+        const log = (text, color, message, flot) => {
+          const logContainer = document.getElementById('log-container');
+          
+          // Create an alert div with Bootstrap classes
+          const alertDiv = document.createElement('li');
+          alertDiv.className = `clearfix`;
+          alertDiv.innerHTML = `
+            <div class="message ${message} ${flot}">${text}</div>
+          `;
+      
+          // Append the alert to the log container
+          logContainer.appendChild(alertDiv);
+        };
+      
+        const socket = new WebSocket('ws://' + location.host + '/echo');
+        socket.addEventListener('message', ev => {
+          log( ev.data, 'primary', "my-message", ""); // Use 'primary' for blue color in Bootstrap
+        });
+      
+        document.getElementById('form').onsubmit = ev => {
+          ev.preventDefault();
+          const textField = document.getElementById('text');
+          log(textField.value, 'info', "other-message", "float-right"); // Use 'danger' for red color in Bootstrap
+          socket.send(textField.value);
+          textField.value = '';
+        };
+      </script>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

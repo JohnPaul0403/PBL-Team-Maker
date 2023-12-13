@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Bootstrap library-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css') }}">
-
     <title>{{blog.title}}</title>
 </head>
     <body>
@@ -27,6 +25,9 @@
                         <a class="nav-link" href="{{url_for('blogs_page')}}">Blog</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('chat_page')}}">Chat Assistant</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{url_for('contacts_page')}}">Contacts</a>
                     </li>
                 </ul>
@@ -36,17 +37,23 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>{{blog.title}}</h2>
+                        <h2 style="text-align: center;">{{blog.title}}</h2>
                     </div>
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-12">
-                        <img style="padding-top: 20px;" width="400px" src="{{url_for('static', filename = blog.img)}}" alt="">
+                        <img class="mx-auto d-block" style="padding-top: 20px;" width="400px" src="{{url_for('static', filename = blog.img)}}" alt="">
                     </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12">
-                        <p style="text-align: justify; font-size: 150%;">{{blog.body}}</p>
+                    <div class="col-md-12 blog_body" style="text-align: justify;">
+                        {%for line in blog.body%}
+                        {%if loop.index % 2 == 0%}
+                        <h2>{{line}}</h2>
+                        {%else%}
+                        <p style="text-align: justify;">{{line}}</p>
+                        {%endif%}
+                        {%endfor%}
                     </div>
                 </div>
             </div>
@@ -56,18 +63,18 @@
             <div class="container mt-4" style="text-align: center;">
                 <div class="row">
                     <div class="col-md-4 footer-section">
-                        <h4>About Us</h4>
-                        <p>Your Company Name is dedicated to helping teams work efficiently and collaborate effectively.</p>
+                        <h4>About Team Maker</h4>
+                        <p>Team Maker is a transformative project committed to revolutionizing the way teams are formed in educational settings. Our mission is to simplify the team formation process for educators, providing an intuitive dashboard and innovative features that enhance collaboration and enrich the learning experience.</p>
                     </div>
                     <div class="col-md-4 footer-section">
-                        <h4>Contact Us</h4>
-                        <p>Email: contact@yourcompany.com</p>
+                        <h4>Contact Team Maker</h4>
+                        <p>Email: contact@teammaker.com</p>
                         <p>Phone: +123-456-7890</p>
                     </div>
                     <div class="col-md-4 footer-section">
-                        <h4>Address</h4>
-                        <p>123 Team Street</p>
-                        <p>City, Country</p>
+                        <h4>Visit Us</h4>
+                        <p>Team Maker HQ</p>
+                        <p>123 Innovation Avenue</p>
                     </div>
                 </div>
             </div>
