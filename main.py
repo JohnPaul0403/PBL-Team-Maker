@@ -157,7 +157,7 @@ def main():
         except Exception:
             team_input = 0
 
-        if not team_input:
+        if team_input <= 0:
             flash("Incorect value. Please try again!")
             prof_name = pd.get_name_by_id(session['username'])
             return redirect(url_for("dashboard_page", prof = prof_name))
