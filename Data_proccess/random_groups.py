@@ -46,32 +46,6 @@ def create_random_teams(data, n):
     teams.extend(data[i - 1::step] for i in team_list)
     return teams
 
-def get_all_arragements(data):
-    """
-    Gets all possible arrangements of members in a group.
-
-    Args:
-        data: The data used to create teams.
-
-    Returns:
-        List: All possible arrangements of members in a group.
-
-    Examples:
-        # Get all possible arrangements of members in a group
-        arrangements = get_all_arragements(data)
-    """
-    return permutations(data)
-
-def get_team_template(data, n):
-    #Variable declaration
-    step = int(len(data) / n)
-    team_list = list(range(1, step + 1))
-    teams = []
-
-    #Arrange data by teams
-    teams.extend(data[i - 1::step] for i in team_list)
-    return teams
-
 def create_teams(optimaze, n, data):
     """
     Create teams based on optimization criteria.
